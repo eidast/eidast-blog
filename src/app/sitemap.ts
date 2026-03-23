@@ -4,6 +4,9 @@ import { routing } from "@/i18n/routing";
 import { getAllPosts } from "@/lib/posts";
 import { getSiteUrl } from "@/lib/site-url";
 
+/** Use runtime `SITE_URL` on Cloud Run without rebuilding the image. */
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = getSiteUrl();
   const staticPaths = ["", "/blog", "/about"] as const;

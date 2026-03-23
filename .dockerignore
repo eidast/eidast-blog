@@ -1,0 +1,12 @@
+.next
+.git
+.github
+infra
+.cursor
+node_modules
+npm-debug.log*
+README.md
+*.md
+.env
+.env.*
+!.env.example
