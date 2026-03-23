@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pixel-bg: #0d1117;
+  --pixel-surface: #161b22;
+  --pixel-fg: #e6edf3;
+  --pixel-fg-soft: #b1bac4;
+  --pixel-muted: #8b949e;
+  --pixel-accent: #58a6ff;
+  --pixel-accent-dim: #79c0ff;
+  --pixel-border: #30363d;
+  --pixel-shadow: #010409;
+  --pixel-grid: #21262d;
+  --pixel-code-bg: #0d1117;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--pixel-bg);
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(48, 54, 61, 0.35) 25%,
+      rgba(48, 54, 61, 0.35) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(48, 54, 61, 0.25) 75%,
+      rgba(48, 54, 61, 0.25) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(48, 54, 61, 0.25) 25%,
+      rgba(48, 54, 61, 0.25) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(48, 54, 61, 0.2) 75%,
+      rgba(48, 54, 61, 0.2) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 8px 8px;
+  color: var(--pixel-fg);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* Very subtle scanline overlay; disabled when user prefers reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .crt-overlay::after {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    opacity: 0.04;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.12) 2px,
+      rgba(0, 0, 0, 0.12) 4px
+    );
+  }
+}
+
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
 }

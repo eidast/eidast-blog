@@ -1,0 +1,39 @@
+{
+  "LocaleLayout": {
+    "title": "eidast — enterprise architecture notes"
+  },
+  "Nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "HomePage": {
+    "title": "Strategy, systems, and trade-offs",
+    "subtitle": "Notes on enterprise architecture, cloud adoption, and engineering leadership. Personal opinions, not an employer voice.",
+    "readBlog": "Open blog",
+    "latestHeading": "Latest"
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "Articles on architecture decisions, platforms, and delivery.",
+    "empty": "No posts yet.",
+    "readMore": "Read"
+  },
+  "AboutPage": {
+    "title": "About",
+    "body": "I write about enterprise architecture, cloud platforms, open source operations, and how teams align technology with business outcomes. Content here reflects my own views unless stated otherwise."
+  },
+  "Footer": {
+    "disclaimer": "Views are my own.",
+    "linkedin": "LinkedIn"
+  },
+  "Post": {
+    "backToBlog": "← Blog",
+    "tags": "Tags"
+  },
+  "NotFound": {
+    "title": "Not found",
+    "body": "This page does not exist or was moved.",
+    "home": "Home"
+  }
+}

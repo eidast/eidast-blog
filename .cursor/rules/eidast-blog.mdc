@@ -1,0 +1,63 @@
+---
+description: Voice, i18n, MDX content, and pixel UI standards for eidast enterprise architecture blog
+alwaysApply: true
+---
+
+# eidast blog — project rules
+
+## Author context
+
+The site belongs to **Alexander Moreno Delgado** (eidast): enterprise architecture leadership, cloud adoption (AWS/GCP), open source operations (Linux, platforms), DevOps/IaC, and alignment between business outcomes and technical delivery. Co-founder context (StarQuantix) may appear when relevant; **Walmart / any employer is never implied as the source of blog opinions**.
+
+## Voice and substance
+
+- Write for **technical leaders and senior engineers**: precise, strategic, honest about trade-offs.
+- Prefer **concrete patterns, decision records, and constraints** over buzzwords or generic “best practices.”
+- When citing employers or clients, use **hypothetical or public patterns** only; never confidential data, names, or internal identifiers.
+- Add a **personal-opinion stance** where appropriate; the footer already states views are personal.
+
+## Internationalization
+
+- **Locales**: `en` and `es`, URL prefix always (`/en/...`, `/es/...`). Default locale: `en`.
+- **UI strings** live in [`messages/en.json`](messages/en.json) and [`messages/es.json`](messages/es.json); do not hardcode user-visible English/Spanish in components except one-off prototypes (then migrate to messages).
+- **Blog posts** live under [`content/en/`](content/en/) and [`content/es/`](content/es/) as `.mdx`. Use the **same filename** (hence same slug) in both folders when publishing a translation pair so `hreflang` and `alternates` stay correct.
+- **Locale switcher**: implement language changes with [`Link`](src/i18n/navigation.ts) + `locale` + `href` from [`usePathname`](src/i18n/navigation.ts) (same path, other locale). Avoid relying only on `router.replace(..., { locale })` with Next.js 16 unless verified; `Link` keeps the **locale cookie** and URL prefix aligned (see next-intl navigation docs).
+
+### How we keep i18n correct (not “magic guarantees”)
+
+- **Routing**: [`src/proxy.ts`](src/proxy.ts) (next-intl middleware) negotiates locale and enforces prefixed URLs; invalid locale segments 404 via `src/app/[locale]/layout.tsx`.
+- **UI copy**: every user-visible string for chrome (nav, buttons, errors) must exist in **both** `messages/*.json` files; missing keys surface at runtime when that locale loads.
+- **Blog copy**: each language is a separate MDX file; `locale` in frontmatter must match the folder. Pairs share a slug for SEO alternates.
+- **Regression checks**: run `npm run build` (static params + SSG for `/en` and `/es`); manually click EN/ES on home, blog index, and one post and confirm URL prefix and strings change.
+
+## MDX frontmatter
+
+Every post must include YAML frontmatter validated by [`src/lib/post-schema.ts`](src/lib/post-schema.ts):
+
+- `title` (string)
+- `description` (string)
+- `date` (ISO date string, e.g. `2025-03-15`)
+- `locale`: `en` | `es` (must match folder)
+- `tags` (string array; optional empty)
+- `slug` (optional; defaults to filename without `.mdx`)
+
+Invalid frontmatter causes the post to be **silently omitted** from listings; fix Zod errors when adding content.
+
+## Visual design (pixel + enterprise)
+
+- **Pixel aesthetic**: `Press Start 2P` only for short UI and headings; **body** uses `IBM Plex Sans` (see [`src/app/[locale]/layout.tsx`](src/app/[locale]/layout.tsx)).
+- Use design tokens from [`src/app/globals.css`](src/app/globals.css) (`--pixel-*`); avoid ad-hoc hex colors in new components unless extending the palette there first.
+- Reuse [`PixelCard`](src/components/PixelCard.tsx), border-2, and 8px grid motion. Keep **contrast** readable; respect `prefers-reduced-motion` (scanline/CRT overlay already gated in CSS).
+- Do not make the UI “gamey” or childish—**restraint** and **dense information** beat decoration.
+
+## Code conventions
+
+- **Next.js App Router** under `src/app/[locale]/…`.
+- Use **`next-intl`** for translations and [`@/i18n/navigation`](src/i18n/navigation.ts) `Link` / router for locale-aware navigation.
+- Prefer **Server Components**; `"use client"` only when needed (e.g. [`LocaleSwitcher`](src/components/LocaleSwitcher.tsx)).
+- New routes: call **`setRequestLocale(locale)`** early in server pages/layouts that use `next-intl` APIs to preserve static generation where applicable.
+
+## SEO
+
+- Set **`NEXT_PUBLIC_SITE_URL`** in production (see [`.env.example`](.env.example)) so `metadataBase`, sitemap, and `robots.txt` are correct.
+- For posts, ensure **canonical** and **`alternates.languages`** stay in sync when adding or renaming slugs.

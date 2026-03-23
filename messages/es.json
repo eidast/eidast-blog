@@ -1,0 +1,39 @@
+{
+  "LocaleLayout": {
+    "title": "eidast — notas de arquitectura empresarial"
+  },
+  "Nav": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "about": "Sobre mí"
+  },
+  "HomePage": {
+    "title": "Estrategia, sistemas y trade-offs",
+    "subtitle": "Notas sobre arquitectura empresarial, adopción cloud y liderazgo de ingeniería. Opiniones personales, no voz del empleador.",
+    "readBlog": "Ir al blog",
+    "latestHeading": "Lo último"
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "Artículos sobre decisiones de arquitectura, plataformas y entrega.",
+    "empty": "Aún no hay publicaciones.",
+    "readMore": "Leer"
+  },
+  "AboutPage": {
+    "title": "Sobre mí",
+    "body": "Escribo sobre arquitectura empresarial, plataformas cloud, operaciones open source y cómo los equipos alinean la tecnología con el negocio. El contenido aquí refleja mis opiniones salvo que se indique lo contrario."
+  },
+  "Footer": {
+    "disclaimer": "Opiniones personales.",
+    "linkedin": "LinkedIn"
+  },
+  "Post": {
+    "backToBlog": "← Blog",
+    "tags": "Etiquetas"
+  },
+  "NotFound": {
+    "title": "No encontrado",
+    "body": "Esta página no existe o fue movida.",
+    "home": "Inicio"
+  }
+}
