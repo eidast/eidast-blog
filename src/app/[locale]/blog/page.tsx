@@ -4,6 +4,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { PixelCard } from "@/components/PixelCard";
+import { PostPixelPreview } from "@/components/PostPixelPreview";
+import { PostTagChips } from "@/components/PostTagChips";
 import { getAllPosts } from "@/lib/posts";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -50,30 +52,34 @@ export default async function BlogIndexPage({ params }: Props) {
           {posts.map((post) => (
             <li key={post.slug}>
               <PixelCard className="p-5 transition-transform hover:-translate-y-0.5">
-                <article>
-                  <time
-                    dateTime={post.date}
-                    className="font-pixel text-[10px] text-[var(--pixel-accent)]"
-                  >
-                    {post.date}
-                  </time>
-                  <h2 className="mt-2 text-lg font-medium text-[var(--pixel-fg)]">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="hover:text-[var(--pixel-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pixel-accent)]"
+                <article className="flex items-start gap-4">
+                  <PostPixelPreview seed={post.slug} className="shrink-0" />
+                  <div>
+                    <time
+                      dateTime={post.date}
+                      className="font-pixel text-[10px] text-[var(--pixel-accent)]"
                     >
-                      {post.title}
-                    </Link>
-                  </h2>
-                  <p className="mt-2 text-sm text-[var(--pixel-fg-soft)]">{post.description}</p>
-                  <p className="mt-4">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="font-pixel text-[10px] text-[var(--pixel-accent)] underline decoration-2 underline-offset-2"
-                    >
-                      {t("readMore")} →
-                    </Link>
-                  </p>
+                      {post.date}
+                    </time>
+                    <h2 className="mt-2 text-lg font-medium text-[var(--pixel-fg)]">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="hover:text-[var(--pixel-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pixel-accent)]"
+                      >
+                        {post.title}
+                      </Link>
+                    </h2>
+                    <p className="mt-2 text-sm text-[var(--pixel-fg-soft)]">{post.description}</p>
+                    <PostTagChips tags={post.tags} />
+                    <p className="mt-4">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="font-pixel text-[10px] text-[var(--pixel-accent)] underline decoration-2 underline-offset-2"
+                      >
+                        {t("readMore")} →
+                      </Link>
+                    </p>
+                  </div>
                 </article>
               </PixelCard>
             </li>

@@ -25,7 +25,9 @@
   },
   "Footer": {
     "disclaimer": "Opiniones personales.",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "x": "X"
   },
   "Post": {
     "backToBlog": "← Blog",

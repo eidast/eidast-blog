@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { PixelCard } from "@/components/PixelCard";
+import { PostPixelPreview } from "@/components/PostPixelPreview";
+import { PostTagChips } from "@/components/PostTagChips";
 import { getAllPosts } from "@/lib/posts";
 
 type Props = {
@@ -48,16 +50,23 @@ export default async function HomePage({ params }: Props) {
             {latest.map((post) => (
               <li key={post.slug}>
                 <PixelCard className="p-4 transition-transform hover:-translate-y-0.5">
-                  <Link href={`/blog/${post.slug}`} className="block focus-visible:outline-none">
-                    <span className="font-pixel text-xs text-[var(--pixel-accent)]">
-                      {post.date}
-                    </span>
-                    <h3 className="mt-1 text-base font-medium text-[var(--pixel-fg)]">
-                      {post.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-[var(--pixel-fg-soft)]">
-                      {post.description}
-                    </p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="flex items-start gap-4 focus-visible:outline-none"
+                  >
+                    <PostPixelPreview seed={post.slug} className="shrink-0" />
+                    <div>
+                      <span className="font-pixel text-xs text-[var(--pixel-accent)]">
+                        {post.date}
+                      </span>
+                      <h3 className="mt-1 text-base font-medium text-[var(--pixel-fg)]">
+                        {post.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-[var(--pixel-fg-soft)]">
+                        {post.description}
+                      </p>
+                      <PostTagChips tags={post.tags} />
+                    </div>
                   </Link>
                 </PixelCard>
               </li>
