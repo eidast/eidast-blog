@@ -21,7 +21,150 @@
   },
   "AboutPage": {
     "title": "Sobre mí",
-    "body": "Escribo sobre arquitectura empresarial, plataformas cloud, operaciones open source y cómo los equipos alinean la tecnología con el negocio. El contenido aquí refleja mis opiniones salvo que se indique lo contrario."
+    "body": "Escribo sobre arquitectura empresarial, plataformas cloud, operaciones open source y cómo los equipos alinean la tecnología con el negocio. El contenido aquí refleja mis opiniones salvo que se indique lo contrario.",
+    "timelineTitle": "Línea de tiempo profesional",
+    "projectsTitle": "Proyectos clave",
+    "skillsTitle": "Certificaciones y stack principal",
+    "snapshotTitle": "Resumen ejecutivo",
+    "verticalsTitle": "Verticales con experiencia",
+    "highlightsTitle": "Hitos clave",
+    "highlights": [
+      "Más de 20 años en arquitectura, cloud, ingeniería de plataformas y entrega.",
+      "Liderazgo en estrategia y gobierno de arquitectura regional en operaciones multi-país.",
+      "Incremento de adopción cloud de 1% a 37% al institucionalizar cloud-first y API-first.",
+      "Construcción de capacidades de calidad y automatización con impacto medible en la entrega."
+    ],
+    "snapshot": [
+      { "value": "20+", "label": "Años en tecnología" },
+      { "value": "7", "label": "Verticales de industria" },
+      { "value": "50+", "label": "Integraciones multi-proveedor" },
+      { "value": "Hasta 70%", "label": "Optimización de costos DB" }
+    ],
+    "verticals": [
+      "Banca y servicios financieros",
+      "Seguros",
+      "Retail y comercio electrónico",
+      "Telecomunicaciones",
+      "Gobierno y sector público",
+      "Salud",
+      "Real estate / proptech"
+    ],
+    "timeline": [
+      {
+        "period": "2021 — Presente",
+        "title": "Enterprise Architecture Manager",
+        "org": "Walmart Centroamérica",
+        "summary": "Liderando la estrategia regional de arquitectura empresarial en servicios financieros, comercio, experiencia cliente y operaciones."
+      },
+      {
+        "period": "2019 — 2021",
+        "title": "DevOps Engineer",
+        "org": "Gorilla Logic",
+        "summary": "Impulsando mejoras DevOps/SRE para clientes de salud y comercio electrónico en AWS, con IaC y CI/CD."
+      },
+      {
+        "period": "2018 — 2019",
+        "title": "Linux and Cloud Engineer",
+        "org": "Auxis",
+        "summary": "Soporte a operaciones retail enterprise, automatizando aprovisionamiento Linux/cloud y reduciendo tiempos de entrega."
+      },
+      {
+        "period": "2012 — 2016",
+        "title": "Solution Architect (Co-Founder)",
+        "org": "Global R C.A",
+        "summary": "Liderazgo en modernización de plataformas y cloud, incluyendo centralización de APIs y migraciones de infraestructura."
+      },
+      {
+        "period": "2010 — 2012",
+        "title": "Solution Architect (Freelance)",
+        "org": "Consultoría independiente",
+        "summary": "Diseño e implementación de soluciones de arquitectura y automatización para múltiples organizaciones."
+      },
+      {
+        "period": "2006 — 2010",
+        "title": "Solution Architect",
+        "org": "Software Libre de Venezuela 777 C.A",
+        "summary": "Implementación de iniciativas de migración open-source e integración enterprise en sector público y privado."
+      },
+      {
+        "period": "2003 — 2005",
+        "title": "Web Programmer",
+        "org": "A&A C.A",
+        "summary": "Desarrollo y mantenimiento de soluciones web con foco en backend y ejecución de plataforma."
+      },
+      {
+        "period": "2000 — 2002",
+        "title": "System Administrator",
+        "org": "UNET",
+        "summary": "Base temprana en administración de sistemas, servicios de red y confiabilidad de plataforma."
+      }
+    ],
+    "projects": [
+      {
+        "period": "2021 — Presente",
+        "title": "Modernización cloud regional",
+        "org": "Walmart Centroamérica",
+        "summary": "Escalamiento de adopción cloud de 1% a 37%, institucionalizando patrones cloud-native y API-first en múltiples dominios."
+      },
+      {
+        "period": "2021 — Presente",
+        "title": "Función de Software Quality Engineering",
+        "org": "Walmart Centroamérica",
+        "summary": "Creación del gobierno regional de calidad y automatización-first, elevando la cobertura de pruebas automatizadas de 0% a 24%."
+      },
+      {
+        "period": "2019 — 2021",
+        "title": "Aceleración con IaC + CI/CD",
+        "org": "Gorilla Logic",
+        "summary": "Diseño de flujos Terraform/CloudFormation y pipelines de entrega para despliegues más rápidos, repetibles y seguros."
+      },
+      {
+        "period": "2018 — 2019",
+        "title": "Automatización de aprovisionamiento de VMs",
+        "org": "Auxis",
+        "summary": "Reducción del aprovisionamiento de infraestructura de cerca de una semana a menos de dos horas mediante automatización."
+      },
+      {
+        "period": "2015 — 2016",
+        "title": "Centralización de plataforma REST",
+        "org": "Global R",
+        "summary": "Consolidación de servicios de negocio reutilizables en plataformas API para reducir complejidad y tiempo de cambio."
+      },
+      {
+        "period": "2013 — 2015",
+        "title": "Migración cloud y entornos bajo demanda",
+        "org": "Iniciativas de consultoría",
+        "summary": "Liderazgo en migraciones de on-prem/VPS a AWS e implementación de entornos de desarrollo y pruebas bajo demanda en Azure."
+      },
+      {
+        "period": "2006 — 2009",
+        "title": "Migraciones open-source y enterprise",
+        "org": "Sector público y enterprise",
+        "summary": "Ejecución de programas de migración a gran escala en infraestructura, identidad y servicios core con foco en continuidad."
+      }
+    ],
+    "skillsGroups": [
+      {
+        "title": "Certificaciones",
+        "items": ["Google Professional Cloud Architect", "LPI-101", "Ruta de certificación Red Hat"]
+      },
+      {
+        "title": "Cloud y plataforma",
+        "items": ["GCP", "AWS", "Azure", "Docker", "Kubernetes"]
+      },
+      {
+        "title": "Arquitectura y entrega",
+        "items": ["Enterprise Architecture", "API-first", "Cloud-first", "Secure-by-design", "SRE/DevOps"]
+      },
+      {
+        "title": "Automatización y observabilidad",
+        "items": ["Terraform", "CloudFormation", "GitHub Actions", "Jenkins", "Dynatrace", "Splunk"]
+      },
+      {
+        "title": "Integración de IA",
+        "items": ["Sistemas con LLM", "Soluciones RAG", "Experiencias multilingües con IA"]
+      }
+    ]
   },
   "Footer": {
     "disclaimer": "Opiniones personales.",
